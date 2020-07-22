@@ -37,6 +37,9 @@ $green: #169E49;
       &.number {
         position: absolute;
         right: calc(100vw - #{$left-space} + 4px);
+        @include mq(tablet) {
+          left: 15px;
+        }
       }
       &.days {
 
