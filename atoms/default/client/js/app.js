@@ -1,27 +1,34 @@
 // data capture for ophan
 function trackLoad() {
-    window.guardian.ophan.record({
-        component: 'thrasher : 100-days : full : load',
-        value: 1
-    });
+  window.guardian.ophan.record({
+    component: 'thrasher : 100-days : full : load',
+    value: 1
+  });
 }
 
 (function () {
 
-    const daysLeft = daysLeft();
-    console.log(`there are ${daysLeft().num} days left`);
+  const days = daysLeft();
+  console.log(`there are ${days.num} days left`);
 
-    function daysLeft() {
-        const today = new Date();
-        const keyDate = new Date(2020, 10, 4); // Obs: Nov=10 because Jan=0!
-        const one_day = 1000 * 60 * 60 * 24;
-        let num = Math.ceil((keyDate.getTime() - today.getTime()) / (one_day));
-        num = (num > 100) ? (num = num - 30) : (num) // subtract 30 for now, for debugging
-        const word = (num == 1) ? 'day' : 'days';
+  function daysLeft() {
+    const today = new Date();
+    const keyDate = new Date(2020, 10, 4); // Obs: Nov=10 because Jan=0!
+    const one_day = 1000 * 60 * 60 * 24;
+    let num = Math.ceil((keyDate.getTime() - today.getTime()) / (one_day));
 
-        return { num: num, word: word };
+    // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
+    if (window.location.hostname == 'localhost') {
+      // for preview & debug
+      num = (num > 100) ? (num = num - 30) : (num);
 
     }
+
+    const word = (num == 1) ? 'day' : 'days';
+
+    return { num: num, word: word };
+
+  }
 
 })();
 
