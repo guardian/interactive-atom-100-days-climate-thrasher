@@ -6,3 +6,4 @@ function trackLoad() {
     });
 }
 
+console.log('app js');

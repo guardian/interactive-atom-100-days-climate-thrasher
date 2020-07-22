@@ -9,8 +9,15 @@ $green: #169E49;
   &__image {
     background-color: tomato;
     height: 66vw;
-    opacity: 0.1;
-
+    opacity: 0.2;
+    @include mq(tablet) {
+      position: absolute;
+      height: auto;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 400px;
+    }
   }
   &__logo {
     position: absolute;
