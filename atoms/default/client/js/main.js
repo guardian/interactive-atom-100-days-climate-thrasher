@@ -2,6 +2,10 @@ var el = document.createElement('script');
 el.src = '<%= atomPath %>/app.js';
 document.body.appendChild(el);
 
+var el = document.createElement('script');
+el.src = '<%= atomPath %>/sheetContent.js';
+document.body.appendChild(el);
+
 if (window.resize) {
   const html = document.querySelector('html')
   const body = document.querySelector('body')
