@@ -6,31 +6,107 @@ function trackLoad() {
   });
 }
 
-(function () {
+startThrasher();
 
-  const days = daysLeft();
-  console.log(`there are ${days.num} days left`);
+function startThrasher() {
+  const daysLeft = calculateDaysLeft();
 
-  function daysLeft() {
-    const today = new Date();
-    const keyDate = new Date(2020, 10, 4); // Obs: Nov=10 because Jan=0!
-    const one_day = 1000 * 60 * 60 * 24;
-    let num = Math.ceil((keyDate.getTime() - today.getTime()) / (one_day));
+  setupDays(daysLeft.num);
 
-    // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
-    if (window.location.hostname == 'localhost') {
-      // for preview & debug
-      num = (num > 100) ? (num = num - 30) : (num);
+  setTimeout(function () {
+    setupAnimation();
+  }, 2000);
+}
 
+
+function setupAnimation() {
+  const counterEl = document.querySelector('.hundred-days .counter');
+  const position = parseInt(counterEl.dataset.position);
+  const target = parseInt(counterEl.dataset.target);
+
+  animationFrame(position, target);
+
+  counterEl.addEventListener('click', function () {
+    console.log('—')
+    console.log('—')
+    animationFrame(position-1, target);
+  })
+}
+
+function animationFrame(pos, target) {
+  // move one step closer to target
+
+  if (pos > target) {
+
+    const digits = document.querySelectorAll('.counter .digit');
+    const newPos = pos - 1;
+
+    const newPosArr = newPos.toString().split('');
+    console.log('new', newPosArr);
+
+    digits.forEach((digitEl, i) => {
+      const currentNum = parseInt(digitEl.dataset.position);
+      const newNum = parseInt(newPosArr[i]);
+      console.log(digitEl, currentNum, newNum);
+      if (newNum && currentNum != newNum) {
+        digitEl.dataset.position = newNum;
+      }
+    })
+
+    // setTimeout(() => {
+    //   console.log('—')
+    //   console.log('—')
+    //   animationFrame(newPos, target);
+    // }, 1600)
+  }
+}
+
+function setupDays(daysLeftNum, animationNum=50) {
+  // setup the countdown by starting `daysLeftNum+animationNum`
+  // we'll then go down by `animationNum`
+
+  const startDayNum = daysLeftNum + animationNum;
+  
+
+  const counterEl = document.querySelector('.hundred-days .counter');
+  counterEl.dataset.position = startDayNum;
+  counterEl.dataset.target = daysLeftNum;
+
+  const daysLeftNumArray = daysLeftNum.toString().split('').reverse();
+  const startDayNumArray = startDayNum.toString().split('').reverse();
+
+
+
+  startDayNumArray.forEach((n, i) => {
+    const digitEl = document.querySelector(`.digit-${i}`);
+    digitEl.dataset.position = n;
+    if (daysLeftNumArray[i]) {
+      digitEl.dataset.target = daysLeftNumArray[i];
+    } else {
+      digitEl.dataset.target = '0';
     }
+  })
+}
 
-    const word = (num == 1) ? 'day' : 'days';
+function calculateDaysLeft() {
+  const today = new Date();
+  const keyDate = new Date(2020, 10, 4); // Obs: Nov=10 because Jan=0!
+  const one_day = 1000 * 60 * 60 * 24;
+  let num = Math.ceil((keyDate.getTime() - today.getTime()) / (one_day));
 
-    return { num: num, word: word };
+  // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
+  if (window.location.hostname == 'localhost') {
+    // for preview & debug
+    num = (num > 100) ? (num = num - 30) : (num);
 
   }
 
-})();
+  const word = (num == 1) ? 'day' : 'days';
+
+  return { num: num, word: word };
+
+}
+
 
 
 
