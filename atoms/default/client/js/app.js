@@ -28,20 +28,12 @@ function setupAnimation() {
 function animationFrame(pos, target) {
   // move one step closer to target
 
-  const timeBetweenFrames = 10000;
+  const timeBetweenFrames = 100;
 
   if (pos > target) {
 
 
     let change = 1;
-    // const delta = (pos - target);
-    // if (delta > 30) {
-    //   change = 3;
-    // } else if (delta > 8) {
-    //   change = 2;
-    // } else {
-    //   change = 1;
-    // }
 
     const digits = document.querySelectorAll('.counter .digit');
     const newPos = pos - change;
@@ -51,7 +43,7 @@ function animationFrame(pos, target) {
     digits.forEach((digitEl, i) => {
       const currentNum = parseInt(digitEl.dataset.position);
       const newNum = newPosArr[i];
-      if ((typeof newNum !== "undefined") && currentNum != newNum) {
+      if (currentNum != newNum) {
         digitEl.dataset.position = newNum;
       }
     })
@@ -87,7 +79,6 @@ function setupDays(daysLeftNum, animationNum = 30) {
   const startDayNumArray = startDayNum.toString().split('').reverse();
 
 
-
   startDayNumArray.forEach((n, i) => {
     const digitEl = document.querySelector(`.digit-${i}`);
     digitEl.dataset.position = n;
@@ -97,6 +88,9 @@ function setupDays(daysLeftNum, animationNum = 30) {
       digitEl.dataset.target = '0';
     }
   })
+
+  counterEl.classList.add('set');
+
 }
 
 function calculateDaysLeft() {
@@ -108,7 +102,7 @@ function calculateDaysLeft() {
   // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
   if (window.location.hostname == 'localhost') {
     // for preview & debug
-    num = (num > 100) ? (num = num - 30) : (num);
+    // num = (num > 100) ? (num = num - 30) : (num);
 
   }
 
