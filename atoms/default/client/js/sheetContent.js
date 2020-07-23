@@ -1,19 +1,24 @@
 
-updateContent("https://interactive.guim.co.uk/docsdata-test/1n18iegWtXJ9Gidwfh7AJ1TmkLnHuKqQl2Q4KEMda37k.json");
+updateContent("https://interactive.guim.co.uk/docsdata-test/1n18iegWtXJ9Gidwfh7AJ1TmkLnHuKqQl2Q4KEMda37k.json", "hundred-days-thrasher");
 
 // Helper functions
 // In a sheet on that link
 // will replace anything with data-sheet attribute
 // with the right data from the sheet
 // where data-sheet='column-name'
+//
+// use with updateContent( jsonLink, wrapperClass )
+// jsonLink: link to JSON from visuals tool
+// wrapperClass: a wrapper element, for safety
+// tabName: tab in google sheet — defaults to 'Sheet1
 
 
-function updateContent(sheetURL) {
+function updateContent(jsonLink, wrapperClass, tabName = 'Sheet1') {
 
-  loadJSON(sheetURL, function (rawData) {
-    const data = rawData.sheets.Sheet1[0];
+  loadJSON(jsonLink, function (rawData) {
+    const data = rawData.sheets[tabName][0];
 
-    document.querySelectorAll('.hundred-days-thrasher [data-sheet]').forEach((el) => {
+    document.querySelectorAll(`.${wrapperClass} [data-sheet]`).forEach((el) => {
       if (el && data[el.dataset.sheet]) {
         el.innerText = data[el.dataset.sheet];
       }
