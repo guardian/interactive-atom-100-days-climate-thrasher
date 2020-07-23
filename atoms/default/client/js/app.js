@@ -12,10 +12,7 @@ function startThrasher() {
   const daysLeft = calculateDaysLeft();
 
   setupDays(daysLeft.num);
-
-  setTimeout(function () {
-    setupAnimation();
-  }, 2000);
+  setupAnimation();
 }
 
 
@@ -26,11 +23,6 @@ function setupAnimation() {
 
   animationFrame(position, target);
 
-  counterEl.addEventListener('click', function () {
-    console.log('—')
-    console.log('—')
-    animationFrame(position-1, target);
-  })
 }
 
 function animationFrame(pos, target) {
@@ -41,32 +33,38 @@ function animationFrame(pos, target) {
     const digits = document.querySelectorAll('.counter .digit');
     const newPos = pos - 1;
 
-    const newPosArr = newPos.toString().split('');
-    console.log('new', newPosArr);
+    const newPosArr = generatePositionArray(newPos);
 
     digits.forEach((digitEl, i) => {
       const currentNum = parseInt(digitEl.dataset.position);
-      const newNum = parseInt(newPosArr[i]);
-      console.log(digitEl, currentNum, newNum);
-      if (newNum && currentNum != newNum) {
+      const newNum = newPosArr[i];
+      if ((typeof newNum !== "undefined") && currentNum != newNum) {
         digitEl.dataset.position = newNum;
       }
     })
 
-    // setTimeout(() => {
-    //   console.log('—')
-    //   console.log('—')
-    //   animationFrame(newPos, target);
-    // }, 1600)
+    setTimeout(() => {
+      animationFrame(newPos, target);
+    }, 180)
   }
 }
 
-function setupDays(daysLeftNum, animationNum=50) {
+function generatePositionArray(num) {
+  let n = num.toString();
+  if (n.length == 1) {
+    n = '00' + n;
+  } else if (n.length == 2) {
+    n = '0' + n;
+  }
+  const nArray = n.split('');
+  return nArray;
+}
+
+function setupDays(daysLeftNum, animationNum = 50) {
   // setup the countdown by starting `daysLeftNum+animationNum`
   // we'll then go down by `animationNum`
 
   const startDayNum = daysLeftNum + animationNum;
-  
 
   const counterEl = document.querySelector('.hundred-days .counter');
   counterEl.dataset.position = startDayNum;
@@ -106,43 +104,3 @@ function calculateDaysLeft() {
   return { num: num, word: word };
 
 }
-
-
-
-
-
-
-// const digitChange = 160;
-// const digitB = document.querySelector('.digit-b')
-// const digitC = document.querySelector('.digit-c')
-// console.log('hi');
-
-// setInterval(() => {
-//   console.log('c')
-//   const digitCPosition = parseInt(digitC.dataset.position);
-//   // const increase = Math.floor(Math.random()*3)+1;
-//   const decrease = 1;
-//   let newNum = digitCPosition - decrease;
-//   if (newNum > 9) {
-//     newNum = newNum - 10;
-//   }
-
-//   digitC.dataset.position = newNum;
-
-
-// }, digitChange);
-
-
-// let intB = setInterval(() => {
-//   const digitBPosition = parseInt(digitB.dataset.position);
-//   if (digitBPosition == 9) {
-//     digitB.dataset.position = 0;
-//   } else {
-//     digitB.dataset.position = digitBPosition - 1;
-//   }
-
-//   if (digitB.dataset.position == parseInt(digitB.dataset.target)) {
-//     clearInterval(intB);
-//   }
-// }, 10 * digitChange);
-
