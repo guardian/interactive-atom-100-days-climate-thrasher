@@ -1,7 +1,8 @@
 
 updateContent("https://interactive.guim.co.uk/docsdata-test/1n18iegWtXJ9Gidwfh7AJ1TmkLnHuKqQl2Q4KEMda37k.json", "hundred-days-thrasher");
 
-// Helper functions
+// Instruction manual
+// ------------------
 // In a sheet on that link
 // will replace anything with data-sheet attribute
 // with the right data from the sheet
