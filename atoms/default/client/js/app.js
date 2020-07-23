@@ -28,10 +28,23 @@ function setupAnimation() {
 function animationFrame(pos, target) {
   // move one step closer to target
 
+  const timeBetweenFrames = 10000;
+
   if (pos > target) {
 
+
+    let change = 1;
+    // const delta = (pos - target);
+    // if (delta > 30) {
+    //   change = 3;
+    // } else if (delta > 8) {
+    //   change = 2;
+    // } else {
+    //   change = 1;
+    // }
+
     const digits = document.querySelectorAll('.counter .digit');
-    const newPos = pos - 1;
+    const newPos = pos - change;
 
     const newPosArr = generatePositionArray(newPos);
 
@@ -45,7 +58,7 @@ function animationFrame(pos, target) {
 
     setTimeout(() => {
       animationFrame(newPos, target);
-    }, 180)
+    }, timeBetweenFrames);
   }
 }
 
@@ -60,7 +73,7 @@ function generatePositionArray(num) {
   return nArray;
 }
 
-function setupDays(daysLeftNum, animationNum = 50) {
+function setupDays(daysLeftNum, animationNum = 30) {
   // setup the countdown by starting `daysLeftNum+animationNum`
   // we'll then go down by `animationNum`
 

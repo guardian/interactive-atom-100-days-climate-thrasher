@@ -1,0 +1,135 @@
+.hundred-days {
+  position: relative;
+  font-family: "Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
+
+  &__headline {
+    background-color: tomato;
+    .number,
+    .copy {
+      position: absolute;
+      top: 10px;
+    }
+    .number {
+      left: -11px;
+      top: -16px;
+      font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
+      font-size: 92px;
+    }
+
+    .copy {
+      font-size: 36px;
+      line-height: 36px;
+      font-weight: 100;
+      left: 150px;
+      top: 7px;
+    }
+  }
+
+
+  &__background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #EFECE9;
+    background-image: url(https://uploads.guim.co.uk/2020/07/23/background.jpg);
+    z-index: -10;
+  }
+
+  &__image {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &,
+    &__earth,
+    &__hand,
+    &__green-dot {
+      position: absolute;
+    }
+    &__earth {
+      width: 250px;
+      right: -101px;
+      bottom: 92px;
+    }
+    &__hand {
+      bottom: -3px;
+      right: -2px;
+      z-index: -8;
+    }
+    &__green-dot {
+      z-index: -9;
+      &.big {
+        bottom: 71px;
+        right: 54px;
+      }
+      &.small {
+        width: 29px;
+        bottom: 35px;
+        right: 42px;
+      }
+
+    }
+  }
+
+  &__copy {
+    padding: 90px 10px 94px 10px;
+    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+    font-size: 15px;
+    line-height: 20px;
+
+    &__fact {
+      font-weight: bold;
+      margin-right: 60px;
+    }
+
+    &__support {
+      margin-top: 80px;
+      margin-right: 120px;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -1px;
+        width: 165px;
+        height: 1px;
+        background-color: #121212;
+        opacity: 0.8;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .class-name__component-button {
+      margin-left: -4px;
+      @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
+      span {
+        margin-top: 0;
+      }
+    }
+
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+    svg {
+      width: 69px;
+      height: 32px;
+    }
+  }
+
+  &__roundel {
+    position: absolute;
+    bottom: 8px;
+    right: 88px;
+    path:nth-child(1) {
+      fill: #169E49;
+    }
+  }
+}
+

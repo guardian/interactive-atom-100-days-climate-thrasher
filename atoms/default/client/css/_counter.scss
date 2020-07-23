@@ -1,6 +1,5 @@
 .counter {
   white-space: nowrap;
-  padding-right: 0.3em;
 
   .digit {
     width: 0.7em;
@@ -9,22 +8,34 @@
     overflow: hidden;
     display: inline-block;
     white-space: normal;
-    margin-right: -0.3em;
+    margin-right: -0.35em;
     line-height: 1em;
 
     .position {
-      transition: all 160ms ease-in-out;
+      transition: transform 290ms ease-in-out, opacity 290ms ease-in-out;
       transform: translateY(0);
       margin-top: -0.03em;
-      &.digit-b {
-        opacity: 0;
+
+    }
+
+
+    &[data-position='0'] .position {
+      transform: translateY(-0.05em);
+      animation-name: resetZero;
+      animation-delay: 90ms;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+
+      &.position-0 {
+        opacity: 1;
       }
     }
 
-    &[data-position='0'] .position {
-      transform: translateY(0em);
-      &.position-0 {
-        opacity: 1;
+    &.digit-2[data-position='0'],
+    &.digit-2[data-position='00'] {
+      .position-0,
+      .position-00 {
+        opacity: 0;
       }
     }
 
@@ -36,14 +47,14 @@
     }
 
     &[data-position='2'] .position {
-      transform: translateY(-2em);
+      transform: translateY(-1.97em);
       &.position-2 {
         opacity: 1;
       }
     }
 
     &[data-position='3'] .position {
-      transform: translateY(-3em);
+      transform: translateY(-2.94em);
       &.position-3 {
         opacity: 1;
       }
@@ -57,37 +68,61 @@
     }
 
     &[data-position='5'] .position {
-      transform: translateY(-5em);
+      transform: translateY(-4.9em);
       &.position-5 {
         opacity: 1;
       }
     }
 
     &[data-position='6'] .position {
-      transform: translateY(-6em);
+      transform: translateY(-5.84em);
       &.position-6 {
         opacity: 1;
       }
     }
 
     &[data-position='7'] .position {
-      transform: translateY(-7em);
+      transform: translateY(-6.85em);
       &.position-7 {
         opacity: 1;
       }
     }
 
     &[data-position='8'] .position {
-      transform: translateY(-8em);
+      transform: translateY(-7.79em);
       &.position-8 {
         opacity: 1;
       }
     }
 
     &[data-position='9'] .position {
-      transform: translateY(-9em);
+      transform: translateY(-8.8em);
       &.position-9 {
         opacity: 1;
+      }
+    }
+
+    &[data-position='00'] .position {
+      transform: translateY(-9.75em);
+      transition: none;
+      &.position-00 {
+        opacity: 1;
+      }
+
+    }
+
+    @keyframes resetZero {
+      0% {
+        transform: translateY(-0.05em);
+      }
+      50% {
+        transform: translateY(-0.05em);
+      }
+      51% {
+        transform: translateY(-9.75em);
+      }
+      100% {
+        transform: translateY(-9.75em);
       }
     }
 
