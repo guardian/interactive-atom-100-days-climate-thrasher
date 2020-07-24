@@ -90,16 +90,9 @@
     font-family: "Guardian Text Egyptian Web",Georgia,serif;
     font-size: 15px;
     line-height: 20px;
-    &__fact p:before {
-      content: attr(data-number) ' ';
-      display: inline;
-    }
 
     @include mq(360px) {
       padding-top: 90px;
-      &__fact p:before {
-        content: '';
-      }
     }
 
 

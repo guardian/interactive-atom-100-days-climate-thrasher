@@ -90,8 +90,6 @@ function setupDays(daysLeftNum, animationNum = 30) {
   })
 
   counterEl.classList.add('set');
-  setFactDataAttr(daysLeftNum);
-
 }
 
 function calculateDaysLeft() {
@@ -110,14 +108,5 @@ function calculateDaysLeft() {
   const word = (num == 1) ? 'day' : 'days';
 
   return { num: num, word: word };
-
-}
-
-
-function setFactDataAttr(n) {
-  const factEl = document.querySelector('.hundred-days__copy__fact p');
-  if (factEl) {
-    factEl.dataset.number = n;
-  }
 
 }
