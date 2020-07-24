@@ -3,7 +3,7 @@ el.src = '<%= atomPath %>/app.js';
 document.body.appendChild(el);
 
 var el = document.createElement('script');
-el.src = '<%= atomPath %>/sheetContent.js';
+el.src = '<%= atomPath %>/pickFact.js';
 document.body.appendChild(el);
 
 if (window.resize) {

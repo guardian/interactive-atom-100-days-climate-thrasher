@@ -16,18 +16,28 @@
     display: inline-block;
     white-space: normal;
     margin-right: -0.27em;
+    @include mq(desktop) {
+      margin-right: -0.23em;
+    }
     line-height: 1em;
     font-variant-numeric: lining-nums;
+
 
     .position {
       transition: transform 90ms ease-in-out, opacity 90ms ease-in-out;
       transform: translateY(0);
       margin-top: -0.03em;
+    }
 
+    &.last-frame .position {
+      transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
     }
 
     &.digit-2 {
       margin-right: -0.33em;
+      @include mq(desktop) {
+        margin-right: -0.29em;
+      }
     }
 
     &[data-position='0'] .position {

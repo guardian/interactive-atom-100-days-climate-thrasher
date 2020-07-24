@@ -9,9 +9,7 @@ function trackLoad() {
 startThrasher();
 
 function startThrasher() {
-  const daysLeft = calculateDaysLeft();
-
-  setupDays(daysLeft.num);
+  setupDays();
   setupAnimation();
 }
 
@@ -33,6 +31,7 @@ function animationFrame(pos, target) {
   if (pos > target) {
 
 
+
     let change = 1;
 
     const digits = document.querySelectorAll('.counter .digit');
@@ -46,6 +45,11 @@ function animationFrame(pos, target) {
       if (currentNum != newNum) {
         digitEl.dataset.position = newNum;
       }
+
+      // if (pos - target == 1) {
+      //   digitEl.classList.add('last-frame');
+      // }
+
     })
 
     setTimeout(() => {
@@ -65,9 +69,14 @@ function generatePositionArray(num) {
   return nArray;
 }
 
-function setupDays(daysLeftNum) {
+function setupDays() {
   // setup the countdown by starting `daysLeftNum+animationNum`
   // we'll then go down by `animationNum`
+
+  const daysLeftNum = calculateDaysLeft();
+
+  const thrasherEl = document.querySelector('.hundred-days-thrasher');
+  thrasherEl.dataset.days = daysLeftNum;
 
   let startDayNum;
   if (daysLeftNum > 99) {
@@ -106,12 +115,14 @@ function calculateDaysLeft() {
   // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
   if (window.location.hostname == 'localhost') {
     // for preview & debug
-    num = (num > 100) ? (num = num - 10) : (num);
+    // num = (num > 100) ? (num = num - 10) : (num);
 
   }
 
   const word = (num == 1) ? 'day' : 'days';
 
-  return { num: num, word: word };
+  // return { num: num, word: word };
+
+  return num;
 
 }

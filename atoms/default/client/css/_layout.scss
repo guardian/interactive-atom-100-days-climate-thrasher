@@ -186,7 +186,7 @@
     }
     @include mq(desktop) {
       padding-right: 340px;
-      padding-top: 154px;
+      padding-top: 160px;
     }
     @include mq(leftCol) {
       padding-left: 190px;
@@ -262,6 +262,9 @@
         // border: 1px solid tomato;
         margin: 0;
         width: 50%;
+      }
+      @include mq(leftCol) {
+        padding-bottom: 2px;
       }
     }
 
