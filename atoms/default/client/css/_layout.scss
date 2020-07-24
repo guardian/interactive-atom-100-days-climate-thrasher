@@ -105,7 +105,7 @@
         right: -8px;
         bottom: 97px;
       }
-      @include mq(tablet) {
+      @include mq(desktop) {
         width: 314px;
         bottom: 95px;
       }
@@ -121,7 +121,7 @@
         right: 94px;
         bottom: 0;
       }
-      @include mq(tablet) {
+      @include mq(desktop) {
         right: 127px;
       }
       @include mq(wide) {
@@ -137,7 +137,7 @@
           right: 124px;
           bottom: 80px;
         }
-        @include mq(tablet) {
+        @include mq(desktop) {
           right: 197px;
           bottom: 74px;
         }
@@ -153,7 +153,7 @@
           right: 136px;
           bottom: 34px;
         }
-        @include mq(tablet) {
+        @include mq(desktop) {
           right: 171px;
           bottom: 30px;
         }
