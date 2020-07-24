@@ -1,0 +1,18 @@
+.hundred-days {
+  .class-name__component-button {
+    &.app {
+      display: none;
+    }
+
+    .ios &,
+    .android & {
+      &.app {
+        display: block;
+      }
+      &.web {
+        display: none;
+      }
+    }
+
+  }
+}
