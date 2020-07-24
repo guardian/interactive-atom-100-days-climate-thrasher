@@ -11,15 +11,34 @@ startThrasher();
 function startThrasher() {
   setupDays();
   setupAnimation();
+
 }
 
 
 function setupAnimation() {
-  const counterEl = document.querySelector('.hundred-days .counter');
+  const thrasherEl = document.querySelector('.hundred-days-thrasher');
+  const counterEl = thrasherEl.querySelector('.hundred-days .counter');
   const position = parseInt(counterEl.dataset.position);
   const target = parseInt(counterEl.dataset.target);
 
-  animationFrame(position, target);
+  window.addEventListener('scroll', () => {
+    if (!thrasherEl.hasAttribute('data-in-view')) {
+      const thrasherTop = thrasherEl.getBoundingClientRect().top;
+      if (thrasherTop < (window.innerHeight * 3 / 4)) {
+        thrasherEl.dataset.inView = true;
+
+        const days = parseInt(thrasherEl.dataset.days);
+        let animationDelay = 2000;
+        if (days > 100) {
+          animationDelay = 10;
+        }
+
+        setTimeout(() => {
+          animationFrame(position, target);
+        }, animationDelay)
+      }
+    }
+  })
 
 }
 
@@ -29,8 +48,6 @@ function animationFrame(pos, target) {
   const timeBetweenFrames = 100;
 
   if (pos > target) {
-
-
 
     let change = 1;
 
