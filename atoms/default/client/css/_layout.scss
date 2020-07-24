@@ -50,7 +50,7 @@
       top: 70px;
 
       @include mq(360px) {
-        left: 164px;
+        left: 156px;
         top: 7px;
       }
       @include mq(tablet) {
@@ -59,7 +59,7 @@
         font-size: 46px;
         line-height: 1;
       }
-      @include mq(tablet) {
+      @include mq(desktop) {
         left: 340px;
         width: 360px;
         font-size: 65px;
@@ -221,7 +221,7 @@
     }
 
     &__support {
-      margin-top: 80px;
+      margin-top: 44px;
       margin-right: 132px;
       position: relative;
       padding-bottom: 36px;
@@ -273,10 +273,9 @@
       @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
       span {
         margin-top: 0;
+        white-space: nowrap;
       }
-      @include mq(tablet) {
-        margin-top: 12px;
-      }
+      margin-top: 12px;
     }
 
   }

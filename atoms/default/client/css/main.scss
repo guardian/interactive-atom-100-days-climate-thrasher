@@ -39,7 +39,8 @@ $buttonHoverColor:$neutral-46;
 
 // this targets the container your thrasher is put inside on Fronts
 section#thrasher-atom,
-section#hundred-days-thrasher {
+section#hundred-days-thrasher,
+section#100-days-to-save-the-world {
     width:100%;
     position: relative;
     padding: 0 !important;
@@ -56,7 +57,11 @@ section#hundred-days-thrasher {
 }
 
 .#{$containerName} {
-    width:100%;
+    margin: 0 -10px;
+    overflow: hidden;
+    @include mq(tablet) {
+        margin: 0;
+    }
     // &__headline {
     //     color:$textColor;
     //     font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
