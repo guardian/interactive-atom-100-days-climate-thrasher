@@ -97,7 +97,7 @@ function setupDays() {
 
   let startDayNum;
   if (daysLeftNum > 99) {
-    startDayNum = daysLeftNum + 50;
+    startDayNum = daysLeftNum + 30;
   } else {
     startDayNum = 100;
   }
