@@ -3,6 +3,7 @@
   margin-left: -0.1em;
   opacity: 0;
   &.set {
+    transition: opacity 100ms ease-out;
     opacity: 1;
   }
 

@@ -65,11 +65,16 @@ function generatePositionArray(num) {
   return nArray;
 }
 
-function setupDays(daysLeftNum, animationNum = 30) {
+function setupDays(daysLeftNum) {
   // setup the countdown by starting `daysLeftNum+animationNum`
   // we'll then go down by `animationNum`
 
-  const startDayNum = daysLeftNum + animationNum;
+  let startDayNum;
+  if (daysLeftNum > 99) {
+    startDayNum = daysLeftNum + 50;
+  } else {
+    startDayNum = 100;
+  }
 
   const counterEl = document.querySelector('.hundred-days .counter');
   counterEl.dataset.position = startDayNum;
@@ -101,7 +106,7 @@ function calculateDaysLeft() {
   // if (window.location.hostname == 'localhost' || window.location.hostname == 'preview.gutools.co.uk') {
   if (window.location.hostname == 'localhost') {
     // for preview & debug
-    // num = (num > 100) ? (num = num - 30) : (num);
+    num = (num > 100) ? (num = num - 10) : (num);
 
   }
 
