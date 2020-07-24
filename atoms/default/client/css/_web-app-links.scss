@@ -15,4 +15,11 @@
     }
 
   }
+
+  .ios &,
+  .android & {
+    .web-more {
+      display: none;
+    }
+  }
 }
