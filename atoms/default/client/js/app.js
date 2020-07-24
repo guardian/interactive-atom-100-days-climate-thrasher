@@ -120,7 +120,6 @@ function setupDays() {
     }
   })
 
-  counterEl.classList.add('set');
 }
 
 function calculateDaysLeft() {
