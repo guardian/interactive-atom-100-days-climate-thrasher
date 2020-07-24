@@ -252,6 +252,11 @@
       }
       a {
         text-decoration: underline;
+        .ios &,
+        .android & {
+          text-decoration: none;
+          color: inherit;
+        }
       }
 
       @include mq(mobileLandscape) {
