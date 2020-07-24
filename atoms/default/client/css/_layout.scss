@@ -10,7 +10,6 @@
       top: 10px;
     }
     .number {
-      left: 0px;
       top: -9px;
       font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
       font-size: 76px;
@@ -18,6 +17,13 @@
       @include mq(360px) {
         left: 1px;
         font-size: 86px;
+      }
+      @include mq(tablet) {
+        font-size: 108px;
+        top: -12px;
+        left: auto;
+        right: 510px;
+
       }
 
     }
@@ -33,6 +39,12 @@
       @include mq(360px) {
         left: 164px;
         top: 7px;
+      }
+      @include mq(tablet) {
+        left: 268px;
+        width: 260px;
+        font-size: 46px;
+        line-height: 1;
       }
     }
   }
@@ -64,22 +76,38 @@
       width: 250px;
       right: -99px;
       bottom: 93px;
+      @include mq(tablet) {
+        right: -8px;
+        bottom: 97px;
+      }
     }
     &__hand {
       bottom: -3px;
       right: -2px;
       z-index: -8;
-    }
+      @include mq(tablet) {
+        right: 94px;
+        bottom: 0;
+      }
+  }
     &__green-dot {
       z-index: -9;
       &.big {
         bottom: 71px;
         right: 54px;
+        @include mq(tablet) {
+          right: 124px;
+          bottom: 80px;
+        }
       }
       &.small {
         width: 29px;
         bottom: 35px;
         right: 42px;
+        @include mq(tablet) {
+          right: 136px;
+          bottom: 34px;
+        }
       }
 
     }
@@ -95,19 +123,46 @@
       padding-top: 90px;
     }
 
+    @include mq(tablet) {
+      padding-top: 112px;
+      padding-left: 20px;
+      padding-right: 240px;
+      padding-bottom: 12px;
+      display: flex;
+      flex-direction: row;
+  }
 
     &__fact {
       font-weight: bold;
       margin-right: 60px;
+      position: relative;
       @include mq(mobileLandscape) {
         margin-right: 120px;
       }
+      @include mq(tablet) {
+        // border: 1px solid tomato;
+        margin: 0;
+        width: 50%;
+        margin-right: 20px;
+        margin-bottom: 24px;
+      }
+
+      display: none;
+      &.has-fact {
+        display: block;
+      }
+
     }
 
     &__support {
       margin-top: 80px;
       margin-right: 132px;
       position: relative;
+      padding-bottom: 36px;
+      .has-fact+& {
+        padding-bottom: 0;
+      }
+
       &:before {
         content: '';
         position: absolute;
@@ -117,6 +172,17 @@
         height: 1px;
         background-color: #121212;
         opacity: 0.8;
+        @include mq(tablet) {
+          display: none;
+          .has-fact+& {
+            display: block;
+          }
+          top: 5px;
+          left: -10px;
+          width: 1px;
+          bottom: -12px;
+          height: auto;
+        }
       }
       a {
         text-decoration: underline;
@@ -126,6 +192,11 @@
         margin-right: 160px;
       }
 
+      @include mq(tablet) {
+        // border: 1px solid tomato;
+        margin: 0;
+        width: 50%;
+      }
     }
 
     .class-name__component-button {
@@ -146,6 +217,14 @@
       width: 69px;
       height: 32px;
     }
+    @include mq(tablet) {
+      left: 20px;
+      bottom: 6px;
+      svg {
+        width: 45px;
+        height: 21px;
+      }
+    }
   }
 
   &__roundel {
@@ -154,6 +233,9 @@
     right: 88px;
     path:nth-child(1) {
       fill: #169E49;
+    }
+    @include mq(tablet) {
+      right: 20px;
     }
   }
 }
