@@ -1,7 +1,10 @@
 .hundred-days {
   position: relative;
   font-family: "Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-
+  @include mq(tablet) {
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+  }
   &__headline {
     background-color: tomato;
     .number,
@@ -23,7 +26,17 @@
         top: -12px;
         left: auto;
         right: 510px;
-
+      }
+      @include mq(desktop) {
+        font-size: 162px;
+        right: 700px;
+        top: -20px;
+      }
+      @include mq(leftCol) {
+        right: 690px;
+      }
+      @include mq(wide) {
+        right: 780px;
       }
 
     }
@@ -45,6 +58,18 @@
         width: 260px;
         font-size: 46px;
         line-height: 1;
+      }
+      @include mq(tablet) {
+        left: 340px;
+        width: 360px;
+        font-size: 65px;
+        line-height: 1.06;
+      }
+      @include mq(leftCol) {
+        left: 500px;
+      }
+      @include mq(wide) {
+        left: 570px;
       }
     }
   }
@@ -80,6 +105,13 @@
         right: -8px;
         bottom: 97px;
       }
+      @include mq(tablet) {
+        width: 314px;
+        bottom: 95px;
+      }
+      @include mq(wide) {
+        right: 72px;
+      }
     }
     &__hand {
       bottom: -3px;
@@ -89,7 +121,13 @@
         right: 94px;
         bottom: 0;
       }
-  }
+      @include mq(tablet) {
+        right: 127px;
+      }
+      @include mq(wide) {
+        right: 211px;
+      }
+    }
     &__green-dot {
       z-index: -9;
       &.big {
@@ -99,6 +137,13 @@
           right: 124px;
           bottom: 80px;
         }
+        @include mq(tablet) {
+          right: 197px;
+          bottom: 74px;
+        }
+        @include mq(wide) {
+          right: 290px;
+        }
       }
       &.small {
         width: 29px;
@@ -107,6 +152,14 @@
         @include mq(tablet) {
           right: 136px;
           bottom: 34px;
+        }
+        @include mq(tablet) {
+          right: 171px;
+          bottom: 30px;
+        }
+        @include mq(wide) {
+          bottom: 24px;
+          right: 196px;
         }
       }
 
@@ -130,7 +183,20 @@
       padding-bottom: 12px;
       display: flex;
       flex-direction: row;
-  }
+    }
+    @include mq(desktop) {
+      padding-right: 340px;
+      padding-top: 154px;
+    }
+    @include mq(leftCol) {
+      padding-left: 190px;
+      padding-right: 350px;
+    }
+    @include mq(wide) {
+      padding-left: 270px;
+      padding-right: 440px;
+    }
+
 
     &__fact {
       font-weight: bold;
@@ -205,6 +271,9 @@
       span {
         margin-top: 0;
       }
+      @include mq(tablet) {
+        margin-top: 12px;
+      }
     }
 
   }
@@ -223,6 +292,15 @@
       svg {
         width: 45px;
         height: 21px;
+      }
+    }
+    @include mq(leftCol) {
+      left: 20px;
+      bottom: auto;
+      top: 10px;
+      svg {
+        width: 80px;
+        height: 38px;
       }
     }
   }
