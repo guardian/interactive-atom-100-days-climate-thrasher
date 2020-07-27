@@ -13,8 +13,10 @@ function updateContent(jsonLink, wrapperClass, tabName = 'Sheet1') {
         const day = parseInt(thrasherEl.dataset.days);
         fillInFact(thrasherEl, day, data);
         setTimeout(() => {
-          window.resize();
-        }, 100);
+          if (window.resize) {
+            window.resize();
+          }
+        }, 200);
 
       }
     })
@@ -31,6 +33,12 @@ function fillInFact(thrasherEl, day, data) {
 
       factEl.classList.add('has-fact');
       factTextEl.innerText = datum.fact;
+
+      if (datum.source) {
+        const factSourceEl = factEl.querySelector('.source');
+        factSourceEl.setAttribute('href', datum.source);
+      }
+
     }
   })
 }

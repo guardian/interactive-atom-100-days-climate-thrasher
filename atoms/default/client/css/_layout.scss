@@ -230,6 +230,21 @@
         display: block;
       }
 
+      p {
+        margin-bottom: 0;
+      }
+      .source {
+        opacity: 0.75;
+        font-weight: 300;
+        color: inherit;
+        border-bottom: 1px solid currentColor;
+        text-decoration: none;
+        display: none;
+        &[href] {
+          display: inline;
+        }
+      }
+
     }
 
     &__support {
