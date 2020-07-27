@@ -4,7 +4,7 @@
 
   .digit {
     // border: 1px solid red;
-    width: 0.7em;
+    width: 0.75em;
     text-align: center;
     height: 1em;
     overflow: hidden;
@@ -27,6 +27,7 @@
 
     &.digit-2 {
       margin-right: -0.33em;
+      width: 0.6em;
       @include mq(desktop) {
         margin-right: -0.29em;
       }

@@ -21,24 +21,30 @@ function setupAnimation() {
   const position = parseInt(counterEl.dataset.position);
   const target = parseInt(counterEl.dataset.target);
 
+  startAnimation(thrasherEl, position, target);
   window.addEventListener('scroll', () => {
-    if (!thrasherEl.hasAttribute('data-in-view')) {
-      const thrasherTop = thrasherEl.getBoundingClientRect().top;
-      if (thrasherTop < (window.innerHeight * 3 / 4)) {
-        thrasherEl.dataset.inView = true;
-
-        const days = parseInt(thrasherEl.dataset.days);
-        let animationDelay = 2000;
-        if (days > 100) {
-          animationDelay = 10;
-        }
-
-        setTimeout(() => {
-          animationFrame(position, target);
-        }, animationDelay)
-      }
-    }
+    startAnimation(thrasherEl, position, target);
   })
+
+}
+
+function startAnimation(thrasherEl, position, target) {
+  if (!thrasherEl.hasAttribute('data-in-view')) {
+    const thrasherTop = thrasherEl.getBoundingClientRect().top;
+    if (thrasherTop < (window.innerHeight * 3 / 4)) {
+      thrasherEl.dataset.inView = true;
+
+      const days = parseInt(thrasherEl.dataset.days);
+      let animationDelay = 2000;
+      if (days > 100) {
+        animationDelay = 10;
+      }
+
+      setTimeout(() => {
+        animationFrame(position, target);
+      }, animationDelay)
+    }
+  }
 
 }
 
