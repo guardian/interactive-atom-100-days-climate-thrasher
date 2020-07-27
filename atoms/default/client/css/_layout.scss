@@ -19,7 +19,7 @@
       left: 3px;
       .ios &,
       .android & {
-        top: 0;
+        top: 2px;
       }
       @include mq(360px) {
         left: 5px;
@@ -32,7 +32,7 @@
         right: 510px;
         .ios &,
         .android & {
-          top: 0;
+          top: 2px;
         }
       }
       @include mq(desktop) {
@@ -41,7 +41,7 @@
         top: -20px;
         .ios &,
         .android & {
-          top: 10px;
+          top: 12px;
         }
       }
       @include mq(leftCol) {
