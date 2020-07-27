@@ -17,6 +17,10 @@
       font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
       font-size: 76px;
       left: 3px;
+      .ios &,
+      .android & {
+        top: 0;
+      }
       @include mq(360px) {
         left: 5px;
         font-size: 86px;
@@ -26,11 +30,19 @@
         top: -12px;
         left: auto;
         right: 510px;
+        .ios &,
+        .android & {
+          top: 0;
+        }
       }
       @include mq(desktop) {
         font-size: 162px;
         right: 700px;
         top: -20px;
+        .ios &,
+        .android & {
+          top: 10px;
+        }
       }
       @include mq(leftCol) {
         right: 690px;

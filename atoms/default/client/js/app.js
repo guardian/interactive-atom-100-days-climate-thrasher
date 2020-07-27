@@ -36,7 +36,7 @@ function startAnimation(thrasherEl, position, target) {
 
       const days = parseInt(thrasherEl.dataset.days);
       let animationDelay = 2000;
-      if (days > 100) {
+      if (days >= 100) {
         animationDelay = 10;
       }
 
