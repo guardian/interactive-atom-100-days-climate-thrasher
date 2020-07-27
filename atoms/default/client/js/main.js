@@ -32,9 +32,28 @@ if (
   embedbody.style.overflow = "hidden";
   embedbody.style.padding = "0";
   embedbody.style.margin = "0";
+  setupEmbedDetails();
+
   setTimeout(() => {
     window.resize();
   }, 100);
+
 }
 
+function setupEmbedDetails() {
 
+  const bodyEl = document.body;
+  const parentBodyEl = parent.document.body;
+
+  bodyEl.classList.add('is-embed');
+
+  if (parentBodyEl.classList.contains('ios') || parentBodyEl.classList.contains('android')) {
+    bodyEl.classList.add('ios');
+  }
+
+  const linksAll = bodyEl.querySelectorAll('a');
+  linksAll.forEach((link) => {
+    link.setAttribute('target', '_top');
+  })
+
+}

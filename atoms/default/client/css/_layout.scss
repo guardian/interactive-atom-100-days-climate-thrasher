@@ -234,10 +234,13 @@
         position: absolute;
         top: -5px;
         left: -1px;
-        width: 165px;
+        width: 120px;
         height: 1px;
         background-color: #121212;
         opacity: 0.8;
+        @include mq(360px) {
+          width: 165px;
+        }
         @include mq(tablet) {
           display: none;
           .has-fact+& {
@@ -276,9 +279,9 @@
     .class-name__component-button {
       margin-left: -4px;
       @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
+      white-space: nowrap;
       span {
         margin-top: 0;
-        white-space: nowrap;
       }
       margin-top: 12px;
     }

@@ -12,6 +12,10 @@ function updateContent(jsonLink, wrapperClass, tabName = 'Sheet1') {
         clearInterval(waitForDay);
         const day = parseInt(thrasherEl.dataset.days);
         fillInFact(thrasherEl, day, data);
+        setTimeout(() => {
+          window.resize();
+        }, 100);
+
       }
     })
 
