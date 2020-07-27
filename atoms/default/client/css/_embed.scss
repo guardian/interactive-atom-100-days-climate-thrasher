@@ -1,0 +1,49 @@
+body.is-embed {
+  padding: 10px;
+  .hundred-days {
+    margin: 0;
+
+    &__headline {
+      .counter {
+        left: 9px;
+        top: 0;
+      }
+      .copy {
+        @include mq(360px) {
+          left: 168px;
+        }
+      }
+    }
+
+
+    &__copy {
+
+      padding-bottom: 24px;
+      @include mq(355px) {
+        padding-top: 124px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      &__fact {
+        margin-right: 90px;
+      }
+
+      &__support {
+        margin-top: 92px;
+        .has-fact+& {
+          margin-top: 44px;
+        }
+      }
+    }
+
+    &__roundel,
+    &__logo,
+    &__image__green-dot {
+      display: none;
+    }
+
+  }
+}
