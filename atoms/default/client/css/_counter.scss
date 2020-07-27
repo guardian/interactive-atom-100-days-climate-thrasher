@@ -10,10 +10,7 @@
     overflow: hidden;
     display: inline-block;
     white-space: normal;
-    margin-right: -0.27em;
-    @include mq(desktop) {
-      margin-right: -0.23em;
-    }
+    margin-right: -0.23em;
     line-height: 1em;
     font-variant-numeric: lining-nums;
 
