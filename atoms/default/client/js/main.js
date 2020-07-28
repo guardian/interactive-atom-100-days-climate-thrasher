@@ -6,6 +6,8 @@ var el = document.createElement('script');
 el.src = '<%= atomPath %>/pickFact.js';
 document.body.appendChild(el);
 
+// console.log('0852');
+
 if (window.resize) {
   const html = document.querySelector('html')
   const body = document.querySelector('body')
@@ -33,27 +35,50 @@ if (
   embedbody.style.padding = "0";
   embedbody.style.margin = "0";
   setupEmbedDetails();
-
   setTimeout(() => {
     window.resize();
   }, 100);
 
 }
 
+setTimeout(() => {
+  setupEmbedDetails();
+}, 1000);
+setTimeout(() => {
+  setupEmbedDetails();
+}, 3000);
+setTimeout(() => {
+  setupEmbedDetails();
+}, 12000);
+
 function setupEmbedDetails() {
+  if (
+    window.frameElement &&
+    window.frameElement.classList.contains("interactive-atom-fence")
+  ) {
 
-  const bodyEl = document.body;
-  const parentBodyEl = parent.document.body;
+    const bodyEl = document.body;
+    const parentBodyEl = parent.document.body;
 
-  bodyEl.classList.add('is-embed');
+    bodyEl.classList.add('is-embed');
 
-  if (parentBodyEl.classList.contains('ios') || parentBodyEl.classList.contains('android')) {
-    bodyEl.classList.add('ios');
+    if (parentBodyEl.classList.contains('ios') || parentBodyEl.classList.contains('android')) {
+      bodyEl.classList.add('ios');
+    }
+
+    const linksAll = bodyEl.querySelectorAll('a');
+    linksAll.forEach((link) => {
+      link.setAttribute('target', '_top');
+    });
+
+    const thisEmbed = parentBodyEl.querySelector('[data-atom-id="interactives/thrashers/2020/07/100-days-climate/default"]');
+    if (thisEmbed) {
+      // thisEmbed.classList.add('element--supporting')
+      // console.log(thisEmbed.classList);
+    }
+
+    if (window.resize) {
+      window.resize();
+    }
   }
-
-  const linksAll = bodyEl.querySelectorAll('a');
-  linksAll.forEach((link) => {
-    link.setAttribute('target', '_top');
-  })
-
 }

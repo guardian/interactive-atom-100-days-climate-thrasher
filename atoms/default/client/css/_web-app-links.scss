@@ -1,7 +1,17 @@
 .hundred-days {
   .class-name__component-button {
-    &.app {
+    &.app,
+    &.embed {
       display: none;
+    }
+
+    .is-embed & {
+      &.embed {
+        display: inline-flex;
+      }
+      &.web {
+        display: none;
+      }
     }
 
     .ios &,
