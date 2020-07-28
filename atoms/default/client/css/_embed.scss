@@ -1,5 +1,8 @@
 body.is-embed {
   padding: 10px;
+  &.dcr-frame {
+    padding: 0;
+  }
   .hundred-days {
     margin: 0;
 

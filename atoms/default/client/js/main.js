@@ -6,7 +6,7 @@ var el = document.createElement('script');
 el.src = '<%= atomPath %>/pickFact.js';
 document.body.appendChild(el);
 
-// console.log('0852');
+// console.log('0917');
 
 if (window.resize) {
   const html = document.querySelector('html')
@@ -54,11 +54,15 @@ setTimeout(() => {
 function setupEmbedDetails() {
   if (
     window.frameElement &&
-    window.frameElement.classList.contains("interactive-atom-fence")
+    (parent.document.querySelectorAll('body#top, #react-root').length > 0)
   ) {
 
     const bodyEl = document.body;
     const parentBodyEl = parent.document.body;
+
+    if ((parentBodyEl.querySelectorAll('#react-root').length > 0)) {
+      bodyEl.classList.add('dcr-frame');
+    }
 
     bodyEl.classList.add('is-embed');
 
