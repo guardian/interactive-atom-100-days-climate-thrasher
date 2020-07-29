@@ -9,6 +9,12 @@
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
 
+@import "compact-layout";
+@import "../../../default/client/css/counter";
+@import "../../../default/client/css/globe-animation";
+@import "../../../default/client/css/web-app-links";
+@import "../../../default/client/css/embed";
+
 // Default breakpoints from Frontend
 // Use mc() in place of mq() so your thrashers don't get broken
 $mq-breakpoints: (
@@ -24,7 +30,7 @@ $mq-breakpoints: (
 
 
 // update 'class-name' with yours
-$containerName:class-name;
+$containerName: 'hundred-days-thrasher';
 // colours pulled from shared/css/_palette.sass
 $backgroundColor:$labs-main;
 $textColor: $neutral-7;
@@ -34,7 +40,10 @@ $buttonHoverColor:$neutral-46;
 
 
 // this targets the container your thrasher is put inside on Fronts
-section##{$containerName} {
+section#thrasher-atom,
+section#hundred-days-thrasher,
+section#100-days-to-save-the-world-thrasher,
+section#100-days-to-save-the-world {
     width:100%;
     position: relative;
     padding: 0 !important;
@@ -51,26 +60,28 @@ section##{$containerName} {
 }
 
 .#{$containerName} {
-    width:100%;
-    height:200px;
-    background-color:$backgroundColor;
-    &__headline {
-        color:$textColor;
-        font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-        font-size: 34px;
-        @include mc ($from: mobileLandscape) {
-            color:$textColor;
-        }
+    margin: 0 -10px;
+    overflow: hidden;
+    @include mq(tablet) {
+        margin: 0;
     }
-    &__component-button {
-        // mixin takes 3 variables:
-        // background-color, text-color, hover-background-color
-        @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
-    }
-    &__roundel {
-        // mixin makes roundel sit top right of thrasher and move with grid
-        @include roundel-top-right;
-    }
+    // &__headline {
+    //     color:$textColor;
+    //     font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
+    //     font-size: 34px;
+    //     @include mc ($from: mobileLandscape) {
+    //         color:$textColor;
+    //     }
+    // }
+    // &__component-button {
+    //     // mixin takes 3 variables:
+    //     // background-color, text-color, hover-background-color
+    //     @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
+    // }
+    // &__roundel {
+    //     // mixin makes roundel sit top right of thrasher and move with grid
+    //     @include roundel-top-right;
+    // }
 }
 
 
@@ -94,3 +105,5 @@ section##{$containerName} {
         }
     }
 }
+
+

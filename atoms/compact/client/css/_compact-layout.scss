@@ -5,6 +5,7 @@
     border-left: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
   }
+
   &__headline {
     background-color: tomato;
     .number,
@@ -93,89 +94,12 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #EFECE9;
-    background-image: url(https://uploads.guim.co.uk/2020/07/23/background.jpg);
+    background-color: #159E49;
     z-index: -10;
   }
 
   &__image {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    &,
-    &__earth,
-    &__hand,
-    &__green-dot {
-      position: absolute;
-    }
-    &__earth {
-      width: 250px;
-      right: -99px;
-      bottom: 93px;
-      @include mq(tablet) {
-        right: -8px;
-        bottom: 97px;
-      }
-      @include mq(desktop) {
-        width: 314px;
-        bottom: 95px;
-      }
-      @include mq(wide) {
-        right: 72px;
-      }
-    }
-    &__hand {
-      bottom: -3px;
-      right: -2px;
-      z-index: -8;
-      @include mq(tablet) {
-        right: 94px;
-        bottom: 0;
-      }
-      @include mq(desktop) {
-        right: 127px;
-      }
-      @include mq(wide) {
-        right: 211px;
-      }
-    }
-    &__green-dot {
-      z-index: -9;
-      &.big {
-        bottom: 71px;
-        right: 54px;
-        @include mq(tablet) {
-          right: 124px;
-          bottom: 80px;
-        }
-        @include mq(desktop) {
-          right: 197px;
-          bottom: 74px;
-        }
-        @include mq(wide) {
-          right: 290px;
-        }
-      }
-      &.small {
-        width: 29px;
-        bottom: 35px;
-        right: 42px;
-        @include mq(tablet) {
-          right: 136px;
-          bottom: 34px;
-        }
-        @include mq(desktop) {
-          right: 171px;
-          bottom: 30px;
-        }
-        @include mq(wide) {
-          bottom: 24px;
-          right: 196px;
-        }
-      }
-
-    }
+    display: none;
   }
 
   &__copy {
@@ -322,6 +246,12 @@
     svg {
       width: 69px;
       height: 32px;
+      path:nth-child(1) {
+        stroke: #fff;
+        stroke-width: 0.6px;
+        z-index: 2;
+        position: relative;
+      }
     }
     @include mq(tablet) {
       left: 20px;
@@ -347,7 +277,7 @@
     bottom: 8px;
     right: 88px;
     path:nth-child(1) {
-      fill: #169E49;
+      fill: #121212;
     }
     @include mq(tablet) {
       right: 20px;
