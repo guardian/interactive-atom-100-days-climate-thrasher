@@ -3,6 +3,8 @@
   font-family: "Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
   @include mq(tablet) {
     border-left: 1px solid #dcdcdc;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
   }
   &__headline {
