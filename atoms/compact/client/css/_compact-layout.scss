@@ -7,17 +7,28 @@
   }
 
   &__headline {
-    padding: 12px 10px;
+    padding: 8px 10px;
     font-size: 36px;
     line-height: 36px;
 
     @include mq(mobileLandscape) {
-      padding: 12px 20px;
+      padding: 8px 20px;
+    }
+    @include mq(desktop) {
+      padding-bottom: 4px;
+    }
+    @include mq(leftCol) {
+      padding-left: 180px;
+    }
+    @include mq(wide) {
+      padding-left: 260px;
     }
 
     .number {
       font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-
+      @include mq(desktop) {
+        display: inline-block;
+      }
       .digit-2 {
         &[data-position='0'] {
           width: 0.25em;
@@ -30,6 +41,12 @@
     .copy {
       font-weight: 100;
       margin-top: -8px;
+      @include mq(desktop) {
+        display: inline-block;
+        position: relative;
+        bottom: 7px;
+        left: 6px;
+      }
     }
   }
 
@@ -56,10 +73,26 @@
     @include mq(mobileLandscape) {
       padding: 0 20px 22px;
     }
+    @include mq(desktop) {
+      padding: 0 20px 12px;
+    }
+    @include mq(leftCol) {
+      padding-left: 180px;
+    }
+    @include mq(wide) {
+      padding-left: 260px;
+    }
 
     &__support {
       a {
         text-decoration: underline;
+        @include mq(desktop) {
+          text-decoration: none;
+          border-bottom: 1px solid rgba(0,0,0,0.5);
+          &:hover {
+            border-color: #121212;
+          }
+        }
         .ios &,
         .android & {
           text-decoration: none;
@@ -82,6 +115,18 @@
       span {
         margin-top: 0;
       }
+      @include mq(desktop) {
+        position: absolute;
+        margin: 0;
+        top: 6px;
+        left: 434px;
+      }
+      @include mq(leftCol) {
+        left: 594px;
+      }
+      @include mq(wide) {
+        left: 674px;
+      }
     }
 
   }
@@ -103,11 +148,20 @@
     @include mq(mobileLandscape) {
       right: 19px;
     }
+    @include mq(desktop) {
+      bottom: 4px;
+    }
+    @include mq(leftCol) {
+      bottom: auto;
+      right: auto;
+      left: 20px;
+      top: 9px;
+    }
   }
 
   &__roundel {
     position: absolute;
-    top: 9px;
+    top: 6px;
     right: 9px;
     width: 36px;
     height: 36px;
@@ -116,6 +170,9 @@
     }
     @include mq(mobileLandscape) {
       right: 19px;
+    }
+    @include mq(desktop) {
+      top: 7px;
     }
   }
 }
