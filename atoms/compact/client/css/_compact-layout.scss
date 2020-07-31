@@ -1,89 +1,18 @@
 .hundred-days {
   position: relative;
   font-family: "Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-  @include mq(tablet) {
-    border-left: 1px solid #dcdcdc;
-    border-right: 1px solid #dcdcdc;
-  }
 
   &__headline {
-    background-color: tomato;
-    .number,
-    .copy {
-      position: absolute;
-      top: 10px;
-    }
+    padding: 12px 10px;
+    font-size: 36px;
+    line-height: 36px;
     .number {
-      top: -9px;
       font-family:"GuardianTitlepiece","Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
-      font-size: 76px;
-      left: 3px;
-      .ios &,
-      .android & {
-        top: 2px;
-      }
-      @include mq(360px) {
-        left: 5px;
-        font-size: 86px;
-      }
-      @include mq(tablet) {
-        font-size: 108px;
-        top: -12px;
-        left: auto;
-        right: 510px;
-        .ios &,
-        .android & {
-          top: 2px;
-        }
-      }
-      @include mq(desktop) {
-        font-size: 162px;
-        right: 700px;
-        top: -20px;
-        .ios &,
-        .android & {
-          top: 12px;
-        }
-      }
-      @include mq(leftCol) {
-        right: 690px;
-      }
-      @include mq(wide) {
-        right: 780px;
-      }
-
     }
 
     .copy {
-      font-size: 36px;
-      line-height: 36px;
       font-weight: 100;
-
-      left: 9px;
-      top: 70px;
-
-      @include mq(360px) {
-        left: 156px;
-        top: 7px;
-      }
-      @include mq(tablet) {
-        left: 268px;
-        width: 260px;
-        font-size: 46px;
-        line-height: 1;
-      }
-      @include mq(desktop) {
-        left: 340px;
-        width: 360px;
-        font-size: 65px;
-        line-height: 1.06;
-      }
-      @include mq(leftCol) {
-        left: 500px;
-      }
-      @include mq(wide) {
-        left: 570px;
-      }
+      margin-top: -8px;
     }
   }
 
@@ -103,107 +32,12 @@
   }
 
   &__copy {
-    padding: 160px 10px 94px 10px;
     font-family: "Guardian Text Egyptian Web", "Guardian Headline Full","Guardian Egyptian Web",Georgia,serif;
     font-size: 15px;
     line-height: 20px;
-
-    @include mq(360px) {
-      padding-top: 90px;
-    }
-
-    @include mq(tablet) {
-      padding-top: 112px;
-      padding-left: 20px;
-      padding-right: 240px;
-      padding-bottom: 12px;
-      display: flex;
-      flex-direction: row;
-    }
-    @include mq(desktop) {
-      padding-right: 340px;
-      padding-top: 160px;
-    }
-    @include mq(leftCol) {
-      padding-left: 190px;
-      padding-right: 350px;
-    }
-    @include mq(wide) {
-      padding-left: 270px;
-      padding-right: 440px;
-    }
-
-
-    &__fact {
-      font-weight: bold;
-      margin-right: 60px;
-      position: relative;
-      @include mq(mobileLandscape) {
-        margin-right: 120px;
-      }
-      @include mq(tablet) {
-        // border: 1px solid tomato;
-        margin: 0;
-        width: 50%;
-        margin-right: 20px;
-        margin-bottom: 24px;
-      }
-
-      display: none;
-      &.has-fact {
-        display: block;
-      }
-
-      p {
-        margin-bottom: 0;
-      }
-      .source {
-        opacity: 0.75;
-        font-weight: 300;
-        color: inherit;
-        border-bottom: 1px solid currentColor;
-        text-decoration: none;
-        display: none;
-        &[href] {
-          display: inline;
-        }
-      }
-
-    }
+    padding: 0 10px 22px;
 
     &__support {
-      margin-top: 44px;
-      margin-right: 132px;
-      position: relative;
-      padding-bottom: 36px;
-      .has-fact+& {
-        padding-bottom: 0;
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        top: -5px;
-        left: -1px;
-        width: 120px;
-        height: 1px;
-        background-color: #121212;
-        opacity: 0.8;
-        @include mq(360px) {
-          width: 165px;
-        }
-        @include mq(tablet) {
-          display: none;
-          .has-fact+& {
-            display: block;
-          }
-          top: 5px;
-          left: -10px;
-          width: 1px;
-          bottom: -12px;
-          height: auto;
-        }
-      }
       a {
         text-decoration: underline;
         .ios &,
@@ -213,22 +47,15 @@
         }
       }
 
-      @include mq(mobileLandscape) {
-        margin-right: 160px;
-      }
-
-      @include mq(tablet) {
-        // border: 1px solid tomato;
-        margin: 0;
-        width: 50%;
-      }
-      @include mq(leftCol) {
-        padding-bottom: 2px;
-      }
     }
 
+    &__fact {
+      display: none;
+    }
+
+
     .class-name__component-button {
-      margin-left: -4px;
+      margin-left: -3px;
       @include component-button($bgColor: $neutral-7, $color: #fff, $hoverBgColor: $neutral-46);
       white-space: nowrap;
       span {
@@ -241,8 +68,8 @@
 
   &__logo {
     position: absolute;
-    bottom: 4px;
-    left: 10px;
+    bottom: 20px;
+    right: 10px;
     svg {
       width: 69px;
       height: 32px;
@@ -253,29 +80,12 @@
         position: relative;
       }
     }
-    @include mq(tablet) {
-      left: 20px;
-      bottom: 6px;
-      svg {
-        width: 45px;
-        height: 21px;
-      }
-    }
-    @include mq(leftCol) {
-      left: 20px;
-      bottom: auto;
-      top: 10px;
-      svg {
-        width: 80px;
-        height: 38px;
-      }
-    }
   }
 
   &__roundel {
     position: absolute;
-    bottom: 8px;
-    right: 88px;
+    top: 8px;
+    right: 9px;
     path:nth-child(1) {
       fill: #121212;
     }
