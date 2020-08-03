@@ -127,6 +127,17 @@
       @include mq(wide) {
         left: 674px;
       }
+
+      &.web {
+        display: none;
+      }
+      &.compact {
+        display: inline-flex;
+        .ios &,
+        .android & {
+          display: none;
+        }
+      }
     }
 
   }
