@@ -1,7 +1,8 @@
 .hundred-days {
   .class-name__component-button {
     &.app,
-    &.embed {
+    &.embed,
+    &.compact {
       display: none;
     }
 
