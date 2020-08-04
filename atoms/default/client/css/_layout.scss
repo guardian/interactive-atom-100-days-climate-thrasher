@@ -177,6 +177,28 @@
         }
       }
 
+      &.medium {
+        width: 54px;
+        right: -36px;
+        bottom: 280px;
+        @include mq(tablet) {
+          right: 16px;
+          bottom: 112px;
+        }
+        @include mq(desktop) {
+          right: 28px;
+          bottom: 116px;
+        }
+        @include mq(leftCol) {
+          right: -24px;
+          bottom: 172px;
+        }
+        @include mq(wide) {
+          right: 56px;
+          bottom: 172px;
+        }
+      }
+
     }
   }
 
