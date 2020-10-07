@@ -51,7 +51,7 @@ function startAnimation(thrasherEl, position, target) {
 function animationFrame(pos, target) {
   // move one step closer to target
 
-  const timeBetweenFrames = 100;
+  const timeBetweenFrames = 40;
 
   if (pos > target) {
 
