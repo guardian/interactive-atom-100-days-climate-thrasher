@@ -40,7 +40,7 @@ function startAnimation(thrasherEl, position, target) {
             thrasherEl.dataset.inView = true;
 
             const days = parseInt(thrasherEl.dataset.days);
-            let animationDelay = 2000;
+            let animationDelay = 1200;
             if (days >= 100) {
                 animationDelay = 10;
             }
